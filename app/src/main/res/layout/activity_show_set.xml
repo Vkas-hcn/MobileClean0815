@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ss"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_set"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="8dp">
+
+        <ImageView
+            android:id="@+id/img_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:padding="8dp"
+            android:src="@drawable/ic_reture" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="Settings"
+            android:textColor="#FF0A100D"
+            android:textSize="15sp" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
+
+        <ImageView
+            android:id="@+id/imglogo"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:src="@drawable/logo"
+            android:layout_marginTop="21dp" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/atv_share"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/bg_item_set"
+            android:drawableStart="@drawable/fenxiang"
+            android:drawableEnd="@drawable/ic_vector"
+            android:drawablePadding="8dp"
+            android:paddingHorizontal="18dp"
+            android:paddingVertical="20dp"
+            android:text="Share"
+            android:textColor="#FF0A100D"
+            android:textSize="14sp" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/atv_plo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/bg_item_set"
+            android:drawableStart="@drawable/yinsizhengce"
+            android:drawableEnd="@drawable/ic_vector"
+            android:drawablePadding="8dp"
+            android:paddingHorizontal="18dp"
+            android:paddingVertical="20dp"
+            android:text="Privacy policy"
+            android:textColor="#FF0A100F"
+            android:textSize="14sp" />
+
+    </LinearLayout>
+
+</LinearLayout>

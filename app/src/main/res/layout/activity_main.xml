@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.knowing.what.mobileclean.main.MainViewModel" />
+
+        <variable
+            name="storageInfo"
+            type="com.knowing.what.mobileclean.main.StorageInfo" />
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/main"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/background_set"
+            android:orientation="vertical"
+            tools:context=".main.MainActivity">
+
+            <!-- Top Title and Settings Icon -->
+            <RelativeLayout
+                android:id="@+id/title_bar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="20dp"
+                    android:text="@string/app_name"
+                    android:textColor="#FF0A100D"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/settings_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="20dp"
+                    android:src="@drawable/shezhi" />
+
+            </RelativeLayout>
+
+            <!-- Circular Progress Section -->
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp">
+
+                <ImageView
+                    android:id="@+id/img_5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ellipse" />
+
+                <ImageView
+                    android:id="@+id/img_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="-10dp"
+                    android:src="@drawable/ellipse2" />
+
+                <com.google.android.material.progressindicator.CircularProgressIndicator
+                    android:id="@+id/progress_circle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="0dp"
+                    android:progress="@{storageInfo.usedPercentage}"
+                    app:indicatorColor="#2DD8B8"
+                    app:indicatorInset="0dp"
+                    app:indicatorSize="160dp"
+                    app:trackColor="#D5E3E9"
+                    app:trackThickness="6dp"
+                    tools:progress="75" />
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center">
+
+                    <LinearLayout
+                        android:id="@+id/ll_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginBottom="4dp"
+                        android:gravity="center_horizontal|bottom"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/progress_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="0dp"
+                            android:text="@{String.valueOf(storageInfo.usedPercentage)}"
+                            android:textColor="#FF0A100D"
+                            android:textSize="32sp"
+                            tools:text="75" />
+
+                        <TextView
+                            android:id="@+id/progress_text_un"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="%"
+                            android:textColor="#FF0A100D"
+                            android:textSize="20sp" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/progress_status"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/ll_text"
+                        android:layout_centerHorizontal="true"
+                        android:text="@{storageInfo.status}"
+                        android:textColor="#FF8FB488"
+                        android:textSize="12sp"
+                        tools:text="Good" />
+
+                </RelativeLayout>
+
+            </FrameLayout>
+
+            <!-- Storage Information -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/free_storage"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{storageInfo.freeStorage}"
+                        android:textColor="#FF0A100D"
+                        android:textSize="20sp"
+                        tools:text="128 GB" />
+
+                    <TextView
+                        android:id="@+id/free_storage_un"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Free"
+                        android:textColor="#FF8FB488"
+                        android:textSize="14sp" />
+
+                </LinearLayout>
+
+                <View
+                    android:id="@+id/view_line"
+                    android:layout_width="1dp"
+                    android:layout_height="29dp"
+                    android:background="#E6E6E6" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/used_storage"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{storageInfo.usedStorage}"
+                        android:textColor="#FF0A100D"
+                        android:textSize="20sp"
+                        tools:text="33 GB" />
+
+                    <TextView
+                        android:id="@+id/used_storage_un"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Used"
+                        android:textColor="#FF8FB488"
+                        android:textSize="14sp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- Clean Button Section -->
+            <FrameLayout
+                android:id="@+id/fl_clean"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:gravity="center">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/bg_clean" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/clean_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="12dp"
+                    android:drawableEnd="@drawable/chuangkou"
+                    android:gravity="center"
+                    android:text="Clean"
+                    android:textColor="#FFF8FBFF"
+                    android:textSize="16sp" />
+            </FrameLayout>
+
+            <!-- Bottom Section -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_main_bootm"
+                android:orientation="horizontal"
+                android:paddingHorizontal="20dp"
+                android:paddingVertical="24dp">
+
+                <LinearLayout
+                    android:id="@+id/ll_image"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="28dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_picture"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <ImageView
+                        android:layout_width="44dp"
+                        android:layout_height="44dp"
+                        android:src="@drawable/ic_img_logo" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="12dp"
+                        android:text="Picture Clean"
+                        android:textColor="#FFFADA46"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_file"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_file_clean"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <ImageView
+                        android:layout_width="44dp"
+                        android:layout_height="44dp"
+                        android:src="@drawable/ic_file_logo" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="12dp"
+                        android:text="File Clean"
+                        android:textColor="#FF8EE13F"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <FrameLayout
+            android:id="@+id/permiss_dialog"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#80000000"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:id="@+id/linearLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="44dp"
+                android:background="@drawable/bg_permiss"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingTop="70dp"
+                android:paddingBottom="24dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Authorization to find more junk files"
+                    android:textColor="#FF0A100D"
+                    android:textSize="14sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/tv_cancel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingHorizontal="28dp"
+                        android:paddingVertical="9dp"
+                        android:text="Cancel"
+                        android:textColor="#FFBCBCBC"
+                        android:textSize="12sp"
+                        app:backgroundTint="#FFF5F5F5"
+                        app:cornerRadius="18dp" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/tv_yes"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="32dp"
+                        android:paddingHorizontal="39dp"
+                        android:paddingVertical="9dp"
+                        android:text="Yes"
+                        android:textColor="#FFFFFFFF"
+                        android:textSize="12sp"
+                        app:backgroundTint="#4EDA7D" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="90dp"
+                android:src="@drawable/ic_permiss_logo" />
+
+        </FrameLayout>
+
+        <include
+            android:id="@+id/in_scan"
+            layout="@layout/dialog_type" />
+    </FrameLayout>
+</layout>

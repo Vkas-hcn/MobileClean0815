@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/con_clean"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:visibility="gone"
+    android:background="@drawable/background_set">
+
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableStart="@drawable/ic_reture"
+        android:drawablePadding="8dp"
+        android:gravity="center"
+        android:padding="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.progressindicator.CircularProgressIndicator
+        android:id="@+id/pg"
+        tools:progress="0"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        app:indicatorColor="#36DFBE"
+        app:indicatorInset="0dp"
+        app:indicatorSize="180dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:trackColor="#EBF5FF"
+        app:trackThickness="12dp" />
+
+    <ImageView
+        android:id="@+id/img_bg_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="-4dp"
+        android:src="@drawable/ellipse2"
+        app:layout_constraintBottom_toBottomOf="@+id/pg"
+        app:layout_constraintEnd_toEndOf="@+id/pg"
+        app:layout_constraintStart_toStartOf="@+id/pg"
+        app:layout_constraintTop_toTopOf="@+id/pg" />
+
+    <ImageView
+        android:id="@+id/img_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_img_logo"
+        app:layout_constraintBottom_toBottomOf="@+id/pg"
+        app:layout_constraintEnd_toEndOf="@+id/pg"
+        app:layout_constraintStart_toStartOf="@+id/pg"
+        app:layout_constraintTop_toTopOf="@+id/pg" />
+
+    <TextView
+        android:id="@+id/tv_tip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Cleaning…"
+        android:textColor="#FF606060"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pg" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
