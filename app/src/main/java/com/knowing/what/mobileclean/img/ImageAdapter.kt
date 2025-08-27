@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.google.android.material.button.MaterialButton
 import com.knowing.what.mobileclean.R
+import com.knowing.what.mobileclean.ohther.MobileCleanApplication
 import java.io.File
 
 class ImageAdapter(
@@ -34,7 +35,7 @@ class ImageAdapter(
         private val tvSize: MaterialButton = itemView.findViewById(R.id.tv_size)
 
         fun bind(image: ImageItem) {
-            Glide.with(itemView.context)
+            Glide.with(MobileCleanApplication.instance)
                 .load(File(image.path))
                 .placeholder(R.mipmap.ic_launcher)
                 .error(R.mipmap.ic_launcher)

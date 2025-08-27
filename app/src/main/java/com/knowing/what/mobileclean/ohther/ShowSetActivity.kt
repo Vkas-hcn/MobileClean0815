@@ -44,7 +44,7 @@ class ShowSetActivity : AppCompatActivity() {
             atvPlo.setOnClickListener {
                 val intent = Intent(Intent .ACTION_VIEW)
                 //TODO
-                intent.data = "https://www.google.com".toUri()
+                intent.data = "https://sites.google.com/view/easy-cleanmmm/home".toUri()
                 startActivity(intent)
             }
         }

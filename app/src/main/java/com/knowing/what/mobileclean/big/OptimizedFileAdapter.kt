@@ -11,6 +11,7 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.RequestOptions
 import com.knowing.what.mobileclean.R
 import com.knowing.what.mobileclean.databinding.ItemFileCleanBinding
+import com.knowing.what.mobileclean.ohther.MobileCleanApplication
 import java.io.File
 
 interface FileAdapterListener {
@@ -42,7 +43,7 @@ class OptimizedFileAdapter(
                 is FileType.Image -> loadImageThumbnail(fileItem.path)
                 is FileType.Video -> loadVideoThumbnail(fileItem.path)
                 else -> {
-                    Glide.with(binding.root.context)
+                    Glide.with(MobileCleanApplication.instance)
                         .clear(binding.ivFileIcon)
                     binding.ivFileIcon.setImageResource(R.drawable.wenjianjia)
                 }
@@ -57,7 +58,7 @@ class OptimizedFileAdapter(
                 .placeholder(R.drawable.weikong)
                 .error(R.drawable.weikong)
 
-            Glide.with(binding.root.context)
+            Glide.with(MobileCleanApplication.instance)
                 .load(File(imagePath))
                 .apply(requestOptions)
                 .into(binding.ivFileIcon)
@@ -71,7 +72,7 @@ class OptimizedFileAdapter(
                 .placeholder(R.drawable.weikong)
                 .error(R.drawable.weikong)
 
-            Glide.with(binding.root.context)
+            Glide.with(MobileCleanApplication.instance)
                 .load(File(videoPath))
                 .apply(requestOptions)
                 .into(binding.ivFileIcon)
